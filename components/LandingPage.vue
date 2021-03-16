@@ -1,8 +1,16 @@
 <script lang="ts">
 import Vue from "vue";
 import { getAllEvents } from "../graphql/queries";
+import EventCard from "./EventCard.vue";
+
+import { BCardGroup } from "bootstrap-vue";
 
 export default Vue.extend({
+  components: {
+    EventCard,
+    BCardGroup
+  },
+
   async asyncData({ app }) {
     const events = await getAllEvents(app);
     return { events };
@@ -13,7 +21,11 @@ export default Vue.extend({
 <template>
   <div class="container">
     <div>
-      <p v-for="event in events" :key="event.id">{{ event.name }}</p>
+      <EventCard
+        v-for="event in events"
+        :key="event.id"
+        :event="event"
+      ></EventCard>
     </div>
   </div>
 </template>

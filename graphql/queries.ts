@@ -25,7 +25,6 @@ export const getAllEvents = async (app: NuxtAppOptions) => {
         }
       `
     });
-    console.log("EVENTS", data.events);
     return data.events;
   } catch (err) {
     console.log("Failed to retrieve events", err);
