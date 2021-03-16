@@ -1,34 +1,19 @@
 <script lang="ts">
 import Vue from "vue";
+import { getAllEvents } from "../graphql/queries";
 
-export default Vue.extend({});
+export default Vue.extend({
+  async asyncData({ app }) {
+    const events = await getAllEvents(app);
+    return { events };
+  }
+});
 </script>
 
 <template>
   <div class="container">
     <div>
-      <Logo />
-      <h1 class="title">
-        HtnFrontendChallenge
-      </h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
+      <p v-for="event in events" :key="event.id">{{ event.name }}</p>
     </div>
   </div>
 </template>
