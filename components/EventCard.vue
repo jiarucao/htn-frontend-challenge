@@ -9,22 +9,7 @@ import {
   BCardImg
 } from "bootstrap-vue";
 
-type Event = {
-  id: number;
-  name: string;
-  event_type: string;
-  permission?: string;
-  start_time: number;
-  end_time: number;
-  description?: string;
-  speakers: {
-    name: string;
-    profile_pic: string;
-  }[];
-  public_url?: string;
-  private_url: string;
-  related_events: number[];
-};
+import { Event } from "../graphql/queries";
 
 export default Vue.extend({
   components: {
@@ -49,7 +34,10 @@ export default Vue.extend({
 <template>
   <div class="card">
     <BCard :title="event.name" :sub-title="event.event_type">
-      <BCardText>{{ event.description }}</BCardText>
+      <BCardText
+        >{{ event.description }}
+        <p>{{ event.start_time }}</p>
+      </BCardText>
     </BCard>
   </div>
 </template>
