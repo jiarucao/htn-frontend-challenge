@@ -1,5 +1,9 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
+  target: 'static',
+  router: {
+    base: '/htn-frontend-challenge/'
+  },
   head: {
     title: "HTN Events",
     htmlAttrs: {

@@ -17,7 +17,7 @@ export default Vue.extend({
 </script>
 
 <template>
-  <a :href="APP" class="logo" @click="onClick">
+  <a :href="APP" class="logo">
     <Logo class="smallLogo" />
   </a>
 </template>
