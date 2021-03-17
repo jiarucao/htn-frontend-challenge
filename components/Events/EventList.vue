@@ -1,43 +1,42 @@
 <script lang="ts">
 import Vue from "vue";
-import { getAllEvents } from "../graphql/queries";
 import EventCard from "./EventCard.vue";
-
-import { BCardGroup } from "bootstrap-vue";
+import { Event } from "../../graphql/queries";
 
 export default Vue.extend({
   components: {
-    EventCard,
-    BCardGroup
+    EventCard
   },
 
-  async asyncData({ app }) {
-    const events = await getAllEvents(app);
-    return { events };
+  props: {
+    events: Array as () => Event[]
   }
 });
 </script>
 
 <template>
   <div class="container">
-    <div>
-      <EventCard
-        v-for="event in events"
-        :key="event.id"
-        :event="event"
-      ></EventCard>
-    </div>
+    <EventCard
+      class="card"
+      v-for="event in events"
+      :key="event.id"
+      :event="event"
+    ></EventCard>
   </div>
 </template>
 
-<style>
+<style scoped lang="postcss">
 .container {
   margin: 0 auto;
   min-height: 100vh;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  text-align: center;
+  margin: 50px auto;
+}
+
+.card:not(:last-child) {
+  margin: 0 0 50px;
 }
 
 .title {

@@ -37,7 +37,8 @@ export default {
     "bootstrap-vue/nuxt",
     // https://go.nuxtjs.dev/axios
     "@nuxtjs/axios",
-    "@nuxtjs/apollo"
+    "@nuxtjs/apollo",
+    "svg-to-vue-component/nuxt"
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
