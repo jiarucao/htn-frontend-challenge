@@ -20,7 +20,7 @@
     "bootstrap-vue": "^2.21.2",
     "core-js": "^3.8.3",
     "graphql-tag": "^2.11.0",
-    "nuxt": "^2.15.3",
+    "nuxt": "^2.15.7",
     "svg-to-vue-component": "^0.3.8"
   },
   "devDependencies": {
